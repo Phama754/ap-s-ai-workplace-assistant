@@ -1,13 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import ReactMarkdown from "react-markdown";
 import { Loader2, SendHorizonal, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Disclaimer } from "@/components/Disclaimer";
-import { chatWithAssistant } from "@/lib/ai.functions";
+import { askAssistant } from "@/lib/assistant-client";
 
 const title = "AI Chatbot Assistant — Workplace AI";
 const description =
@@ -34,7 +33,6 @@ const STARTERS = [
 ];
 
 function ChatPage() {
-  const send = useServerFn(chatWithAssistant);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -52,8 +50,8 @@ function ChatPage() {
     setInput("");
     setBusy(true);
     try {
-      const res = await send({ data: { messages: next } });
-      setMessages([...next, { role: "assistant", content: res.text }]);
+      const text = await askAssistant({ kind: "chat", messages: next });
+      setMessages([...next, { role: "assistant", content: text }]);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "The assistant is unavailable.");
     } finally {

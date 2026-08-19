@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { Loader2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -15,11 +14,10 @@ import {
 } from "@/components/ui/select";
 import { AiOutput } from "@/components/AiOutput";
 import { Disclaimer } from "@/components/Disclaimer";
-import { runAssistantTool } from "@/lib/ai.functions";
+import { askAssistant } from "@/lib/assistant-client";
 import type { ToolDef } from "@/lib/tools";
 
 export function ToolWorkspace({ tool }: { tool: ToolDef }) {
-  const run = useServerFn(runAssistantTool);
   const [values, setValues] = useState<Record<string, string>>(() =>
     Object.fromEntries(
       tool.fields.map((f) => [f.name, f.type === "select" ? (f.options?.[0] ?? "") : ""]),
@@ -38,8 +36,7 @@ export function ToolWorkspace({ tool }: { tool: ToolDef }) {
     }
     setBusy(true);
     try {
-      const res = await run({ data: { tool: tool.id, values } });
-      setOutput(res.text);
+      setOutput(await askAssistant({ kind: "tool", tool: tool.id, values }));
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Generation failed. Try again.");
     } finally {
