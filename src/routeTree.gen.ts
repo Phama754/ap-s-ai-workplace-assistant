@@ -15,7 +15,7 @@ import { Route as EmailRouteImport } from './routes/email'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as PlannerRouteImport } from './routes/planner'
 import { Route as ResearchRouteImport } from './routes/research'
-import { Route as ApiPublicPingaiRouteImport } from './routes/api/public/pingai'
+import { Route as ApiAssistantRouteImport } from './routes/api/assistant'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,9 +47,9 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicPingaiRoute = ApiPublicPingaiRouteImport.update({
-  id: '/api/public/pingai',
-  path: '/api/public/pingai',
+const ApiAssistantRoute = ApiAssistantRouteImport.update({
+  id: '/api/assistant',
+  path: '/api/assistant',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -60,7 +60,7 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
-  '/api/public/pingai': typeof ApiPublicPingaiRoute
+  '/api/assistant': typeof ApiAssistantRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +69,7 @@ export interface FileRoutesByTo {
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
-  '/api/public/pingai': typeof ApiPublicPingaiRoute
+  '/api/assistant': typeof ApiAssistantRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +79,7 @@ export interface FileRoutesById {
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
-  '/api/public/pingai': typeof ApiPublicPingaiRoute
+  '/api/assistant': typeof ApiAssistantRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +90,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/planner'
     | '/research'
-    | '/api/public/pingai'
+    | '/api/assistant'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +99,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/planner'
     | '/research'
-    | '/api/public/pingai'
+    | '/api/assistant'
   id:
     | '__root__'
     | '/'
@@ -108,7 +108,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/planner'
     | '/research'
-    | '/api/public/pingai'
+    | '/api/assistant'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +118,7 @@ export interface RootRouteChildren {
   NotesRoute: typeof NotesRoute
   PlannerRoute: typeof PlannerRoute
   ResearchRoute: typeof ResearchRoute
-  ApiPublicPingaiRoute: typeof ApiPublicPingaiRoute
+  ApiAssistantRoute: typeof ApiAssistantRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -165,11 +165,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/pingai': {
-      id: '/api/public/pingai'
-      path: '/api/public/pingai'
-      fullPath: '/api/public/pingai'
-      preLoaderRoute: typeof ApiPublicPingaiRouteImport
+    '/api/assistant': {
+      id: '/api/assistant'
+      path: '/api/assistant'
+      fullPath: '/api/assistant'
+      preLoaderRoute: typeof ApiAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -182,7 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   NotesRoute: NotesRoute,
   PlannerRoute: PlannerRoute,
   ResearchRoute: ResearchRoute,
-  ApiPublicPingaiRoute: ApiPublicPingaiRoute,
+  ApiAssistantRoute: ApiAssistantRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
