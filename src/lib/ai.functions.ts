@@ -25,14 +25,15 @@ export const runAssistantTool = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const key = process.env["LOVABLE_API_KEY"];
     if (!key) throw new Error("AI is not configured (missing key).");
-    console.log("[ai] tool start", data.tool, !!key);
     const { system, prompt } = buildToolPrompt(data.tool, data.values);
     const result = streamText({
       model: createLovableAiGatewayProvider(key)(CHAT_MODEL),
       system,
       prompt,
     });
-    return { text: await result.text };
+    let text = "";
+    for await (const chunk of result.textStream) text += chunk;
+    return { text };
   });
 
 export const chatWithAssistant = createServerFn({ method: "POST" })
@@ -45,5 +46,7 @@ export const chatWithAssistant = createServerFn({ method: "POST" })
       system: CHAT_SYSTEM_PROMPT,
       messages: data.messages,
     });
-    return { text: await result.text };
+    let text = "";
+    for await (const chunk of result.textStream) text += chunk;
+    return { text };
   });
