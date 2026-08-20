@@ -6,7 +6,15 @@ import { buildToolPrompt, CHAT_SYSTEM_PROMPT } from "@/lib/prompts.server";
 const Body = z.union([
   z.object({
     kind: z.literal("tool"),
-    tool: z.enum(["email", "notes", "planner", "research"]),
+    tool: z.enum([
+      "email",
+      "notes",
+      "planner",
+      "research",
+      "helpdesk",
+      "interview",
+      "cv",
+    ]),
     values: z.record(z.string()),
   }),
   z.object({
