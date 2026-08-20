@@ -14,6 +14,13 @@ AI Research Assistant
 
 AI Chatbot Interface
 
+IT AND HR HELPDESK
+
+Interview Questions
+
+CV Builder
+
+
 Requirements:
 
 Modern dashboard UI
