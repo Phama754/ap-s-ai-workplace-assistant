@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChatRouteImport } from './routes/chat'
+import { Route as CvRouteImport } from './routes/cv'
 import { Route as EmailRouteImport } from './routes/email'
+import { Route as HelpdeskRouteImport } from './routes/helpdesk'
+import { Route as InterviewRouteImport } from './routes/interview'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as PlannerRouteImport } from './routes/planner'
 import { Route as ResearchRouteImport } from './routes/research'
@@ -27,9 +30,24 @@ const ChatRoute = ChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CvRoute = CvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EmailRoute = EmailRouteImport.update({
   id: '/email',
   path: '/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpdeskRoute = HelpdeskRouteImport.update({
+  id: '/helpdesk',
+  path: '/helpdesk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewRoute = InterviewRouteImport.update({
+  id: '/interview',
+  path: '/interview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
@@ -56,7 +74,10 @@ const ApiAssistantRoute = ApiAssistantRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/cv': typeof CvRoute
   '/email': typeof EmailRoute
+  '/helpdesk': typeof HelpdeskRoute
+  '/interview': typeof InterviewRoute
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
@@ -65,7 +86,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/cv': typeof CvRoute
   '/email': typeof EmailRoute
+  '/helpdesk': typeof HelpdeskRoute
+  '/interview': typeof InterviewRoute
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
@@ -75,7 +99,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/cv': typeof CvRoute
   '/email': typeof EmailRoute
+  '/helpdesk': typeof HelpdeskRoute
+  '/interview': typeof InterviewRoute
   '/notes': typeof NotesRoute
   '/planner': typeof PlannerRoute
   '/research': typeof ResearchRoute
@@ -86,7 +113,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/chat'
+    | '/cv'
     | '/email'
+    | '/helpdesk'
+    | '/interview'
     | '/notes'
     | '/planner'
     | '/research'
@@ -95,7 +125,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/chat'
+    | '/cv'
     | '/email'
+    | '/helpdesk'
+    | '/interview'
     | '/notes'
     | '/planner'
     | '/research'
@@ -104,7 +137,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/chat'
+    | '/cv'
     | '/email'
+    | '/helpdesk'
+    | '/interview'
     | '/notes'
     | '/planner'
     | '/research'
@@ -114,7 +150,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRoute
+  CvRoute: typeof CvRoute
   EmailRoute: typeof EmailRoute
+  HelpdeskRoute: typeof HelpdeskRoute
+  InterviewRoute: typeof InterviewRoute
   NotesRoute: typeof NotesRoute
   PlannerRoute: typeof PlannerRoute
   ResearchRoute: typeof ResearchRoute
@@ -137,11 +176,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/email': {
       id: '/email'
       path: '/email'
       fullPath: '/email'
       preLoaderRoute: typeof EmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/helpdesk': {
+      id: '/helpdesk'
+      path: '/helpdesk'
+      fullPath: '/helpdesk'
+      preLoaderRoute: typeof HelpdeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview': {
+      id: '/interview'
+      path: '/interview'
+      fullPath: '/interview'
+      preLoaderRoute: typeof InterviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes': {
@@ -178,7 +238,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRoute,
+  CvRoute: CvRoute,
   EmailRoute: EmailRoute,
+  HelpdeskRoute: HelpdeskRoute,
+  InterviewRoute: InterviewRoute,
   NotesRoute: NotesRoute,
   PlannerRoute: PlannerRoute,
   ResearchRoute: ResearchRoute,

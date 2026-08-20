@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { label: "AI workspaces", value: "5" },
+  { label: "AI workspaces", value: "8" },
   { label: "Structured prompts", value: "Built-in" },
   { label: "Outputs", value: "Fully editable" },
 ];
@@ -37,8 +37,8 @@ function Dashboard() {
           Your AI workplace productivity assistant
         </h1>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Draft emails, turn messy meeting notes into action items, plan projects and
-          research topics — all from one clean workspace, with drafts you stay in control of.
+          Draft emails, summarise meetings, plan projects, research topics, resolve helpdesk
+          tickets, prepare interviews and build CVs — all from one clean workspace, with drafts you stay in control of.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link

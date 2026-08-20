@@ -1,5 +1,13 @@
 import type { LucideIcon } from "lucide-react";
-import { Mail, NotebookPen, ListChecks, Search } from "lucide-react";
+import {
+  Mail,
+  NotebookPen,
+  ListChecks,
+  Search,
+  LifeBuoy,
+  UserRoundSearch,
+  FileText,
+} from "lucide-react";
 
 export type FieldType = "text" | "textarea" | "select";
 
@@ -13,7 +21,14 @@ export type ToolField = {
   rows?: number;
 };
 
-export type ToolId = "email" | "notes" | "planner" | "research";
+export type ToolId =
+  | "email"
+  | "notes"
+  | "planner"
+  | "research"
+  | "helpdesk"
+  | "interview"
+  | "cv";
 
 export type ToolDef = {
   id: ToolId;
@@ -167,6 +182,129 @@ export const TOOLS: ToolDef[] = [
         label: "Depth",
         type: "select",
         options: ["Quick overview", "Standard briefing", "Deep dive"],
+      },
+    ],
+  },
+  {
+    id: "helpdesk",
+    path: "/helpdesk",
+    name: "IT & HR Helpdesk",
+    tagline: "Resolve support tickets faster",
+    description:
+      "Triage an employee ticket and get a diagnosis, step-by-step fix and a ready-to-send reply.",
+    icon: LifeBuoy,
+    cta: "Resolve ticket",
+    fields: [
+      {
+        name: "issue",
+        label: "Ticket or issue description",
+        type: "textarea",
+        rows: 6,
+        placeholder: "Laptop won't connect to the VPN after the latest update…",
+        required: true,
+      },
+      {
+        name: "category",
+        label: "Category",
+        type: "select",
+        options: ["IT / Technical", "HR / People", "Facilities", "Finance", "Other"],
+      },
+      {
+        name: "priority",
+        label: "Priority",
+        type: "select",
+        options: ["Low", "Normal", "High", "Urgent"],
+      },
+      {
+        name: "context",
+        label: "Systems, environment or history (optional)",
+        type: "textarea",
+        rows: 3,
+        placeholder: "Windows 11, Cisco AnyConnect, reported by 4 people this week…",
+      },
+    ],
+  },
+  {
+    id: "interview",
+    path: "/interview",
+    name: "Interview Question Builder",
+    tagline: "Structured interviews, fairer hiring",
+    description:
+      "Generate role-specific interview questions with scoring guidance and follow-up probes.",
+    icon: UserRoundSearch,
+    cta: "Generate questions",
+    fields: [
+      {
+        name: "role",
+        label: "Role title",
+        type: "text",
+        placeholder: "Senior Product Manager",
+        required: true,
+      },
+      {
+        name: "skills",
+        label: "Key skills & responsibilities",
+        type: "textarea",
+        rows: 5,
+        placeholder: "Roadmapping, stakeholder management, data-informed decisions…",
+        required: true,
+      },
+      {
+        name: "seniority",
+        label: "Seniority",
+        type: "select",
+        options: ["Intern / Graduate", "Junior", "Mid-level", "Senior", "Lead / Executive"],
+      },
+      {
+        name: "format",
+        label: "Interview focus",
+        type: "select",
+        options: [
+          "Behavioural (STAR)",
+          "Technical / Case",
+          "Culture & values",
+          "Mixed panel",
+        ],
+      },
+    ],
+  },
+  {
+    id: "cv",
+    path: "/cv",
+    name: "CV & Resume Builder",
+    tagline: "A CV tailored to the job",
+    description:
+      "Turn your experience into a polished, ATS-friendly CV with a tailored professional summary.",
+    icon: FileText,
+    cta: "Build CV",
+    fields: [
+      {
+        name: "profile",
+        label: "Your details, experience & education",
+        type: "textarea",
+        rows: 10,
+        placeholder:
+          "Anita Petersen, Cape Town. 6 yrs ops analyst at Acme: cut reporting time 40%…",
+        required: true,
+      },
+      {
+        name: "target",
+        label: "Target role or job advert",
+        type: "textarea",
+        rows: 4,
+        placeholder: "Paste the job description or name the role you're applying for…",
+      },
+      {
+        name: "style",
+        label: "CV style",
+        type: "select",
+        options: ["Concise one-page", "Standard two-page", "Detailed / academic"],
+      },
+      {
+        name: "tone",
+        label: "Tone",
+        type: "select",
+        options: ["Professional", "Impact-driven", "Warm & personable"],
       },
     ],
   },
