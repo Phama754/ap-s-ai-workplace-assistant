@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { getTool } from "@/lib/tools";
 
-const title = "Smart Email Generator — Workplace AI";
+const title = "Smart Email Generator — AP's Workplace Assistant";
 const description =
   "Turn bullet points into polished, on-tone workplace emails you can edit and send.";
 

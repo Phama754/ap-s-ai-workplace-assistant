@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { getTool } from "@/lib/tools";
 
-const title = "AI Research Assistant — Workplace AI";
+const title = "AI Research Assistant — AP's Workplace Assistant";
 const description =
   "Get structured briefings with key findings, trade-offs, open questions and next steps.";
 

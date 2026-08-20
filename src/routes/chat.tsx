@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Disclaimer } from "@/components/Disclaimer";
 import { askAssistant } from "@/lib/assistant-client";
 
-const title = "AI Chatbot Assistant — Workplace AI";
+const title = "AI Chatbot Assistant — AP's Workplace Assistant";
 const description =
   "Chat with an AI assistant for workplace questions, drafting, planning and quick research.";
 

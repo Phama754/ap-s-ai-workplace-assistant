@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ToolWorkspace } from "@/components/ToolWorkspace";
 import { getTool } from "@/lib/tools";
 
-const title = "Meeting Notes Summarizer — Workplace AI";
+const title = "Meeting Notes Summarizer — AP's Workplace Assistant";
 const description =
   "Turn raw meeting notes into summaries, decisions and owner-tagged action items.";
 
