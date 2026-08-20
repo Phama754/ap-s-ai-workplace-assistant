@@ -3,7 +3,7 @@ import { ArrowRight, MessageSquare, Sparkles } from "lucide-react";
 import { TOOLS } from "@/lib/tools";
 import { Disclaimer } from "@/components/Disclaimer";
 
-const title = "AI Workplace Productivity Assistant";
+const title = "AP's Workplace Assistant";
 const description =
   "Automate workplace tasks with AI: draft emails, summarize meetings, plan work, research topics and chat with an assistant.";
 

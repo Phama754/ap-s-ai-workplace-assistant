@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Workplace Productivity Assistant" },
+      { title: "AP's Workplace Assistant" },
       { name: "description", content: "Automate workplace tasks with AI: emails, meeting summaries, plans, research and chat." },
-      { name: "author", content: "Workplace AI" },
-      { property: "og:title", content: "AI Workplace Productivity Assistant" },
+      { name: "author", content: "AP's Workplace Assistant" },
+      { property: "og:title", content: "AP's Workplace Assistant" },
       { property: "og:description", content: "Automate workplace tasks with AI: emails, meeting summaries, plans, research and chat." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

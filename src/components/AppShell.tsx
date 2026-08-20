@@ -45,7 +45,7 @@ function SidebarInner({ onNavigate }: { onNavigate?: (() => void) | undefined })
         </span>
         <span className="leading-tight">
           <span className="block font-display text-sm font-semibold text-sidebar-foreground">
-            Workplace AI
+            AP's Workplace Assistant
           </span>
           <span className="block text-xs text-sidebar-foreground/60">
             Productivity Assistant
@@ -98,7 +98,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           >
             <Menu className="size-4" />
           </button>
-          <span className="font-display text-sm font-semibold">Workplace AI</span>
+          <span className="font-display text-sm font-semibold">AP's Workplace Assistant</span>
         </header>
         <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
           {children}
